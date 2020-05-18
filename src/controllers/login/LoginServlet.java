@@ -38,8 +38,8 @@ public class LoginServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
         request.setAttribute("hasError", false);
         if(request.getSession().getAttribute("flush") != null){
-            request.setAttribute("flash", request.getSession().getAttribute("flash"));
-            request.getSession().removeAttribute("flash");
+            request.setAttribute("flush", request.getSession().getAttribute("flush"));
+            request.getSession().removeAttribute("flush");
         }
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/login/login.jsp");
