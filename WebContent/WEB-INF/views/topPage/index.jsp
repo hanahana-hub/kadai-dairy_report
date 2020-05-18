@@ -8,8 +8,5 @@
             </div>
         </c:if>
         <h2>日報管理システムへようこそ</h2>
-        <p> sessionScope.login_employee=
-    <c:out value="${sessionScope.login_employee}"></c:out>
-</p>
     </c:param>
 </c:import>
