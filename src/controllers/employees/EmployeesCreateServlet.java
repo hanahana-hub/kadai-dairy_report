@@ -21,13 +21,13 @@ import utils.EncryptUtil;
  * Servlet implementation class EmployyesCreateServlet
  */
 @WebServlet("/employees/create")
-public class EmployyesCreateServlet extends HttpServlet {
+public class EmployeesCreateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployyesCreateServlet() {
+    public EmployeesCreateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -62,10 +62,10 @@ public class EmployyesCreateServlet extends HttpServlet {
                 em.close();
 
                 request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("omployee", e);
+                request.setAttribute("employee", e);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/empoyees/new.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/new.jsp");
                 rd.forward(request, response);
             } else {
                 em.getTransaction().begin();
