@@ -42,6 +42,7 @@ public class ReportUpdateServlet extends HttpServlet {
             EntityManager em = DBUtil.createEntityManager();
 
             Report r = em.find(Report.class, (Integer)(request.getSession().getAttribute("report_id")));
+            System.out.println("★★★★ atai="  +  request.getParameter("report_date") + "★★★★ ");
 
             r.setReport_date(Date.valueOf(request.getParameter("report_date")));
             r.setTitle(request.getParameter("title"));
@@ -63,6 +64,7 @@ public class ReportUpdateServlet extends HttpServlet {
                 em.getTransaction().commit();
                 em.close();
                 request.getSession().setAttribute("flush", "更新が完了しました。");
+
                 request.getSession().removeAttribute("report_id");
 
                 response.sendRedirect(request.getContextPath() + "/reports/index");
